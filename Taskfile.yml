@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - docker build -t dk-tgz/debian-apache-php-fpm .
