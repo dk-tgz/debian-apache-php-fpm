@@ -3,4 +3,8 @@ version: '3'
 tasks:
   build:
     cmds:
-      - docker build -t dk-tgz/debian-apache-php-fpm .
+      - docker build -t dktgz/debian-apache-php-fpm:latest --build-arg GIT_COMMIT=$GIT_COMMIT} .
+      - docker push dktgz/debian-apache-php-fpm:latest
+    vars:
+      GIT_COMMIT:
+        sh: git log -n 1 --format=%h
