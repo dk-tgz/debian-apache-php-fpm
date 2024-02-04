@@ -33,5 +33,3 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: dktgz/debian-apache-php-fpm:latest
-	build-args:
-          - GIT_COMMIT=${{ env.sha_shortt }}
