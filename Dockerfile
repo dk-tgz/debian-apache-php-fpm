@@ -66,11 +66,11 @@ RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 # Supervisord configuration
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose ports 80 and 443 for HTTP and HTTPS
-EXPOSE 80 443
 
-# Start services managed by Supervisord
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
 FROM scratch 
 COPY --from=builder . .
+
+EXPOSE 80 443
+# Start services managed by Supervisord
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
